@@ -2,12 +2,15 @@
 
 To start the segmentation process run the [main.py](main.py).
 
+-----
+
 _thresholding_: <br>
 It's a type of segmentation in which we change the pixel of the image to make it easier to analyze. In
 this case a threshold has been found using the Otsu's method which returns a single intensity threshold
 that separate pixels into two classes, foreground and background. This threshold is determined by minimizing intra-class
 intensity variance. <br>
 ![thresholding](saved/plot/thresholding_segmentation.svg)
+
 -----
 
 _watershed_: The watershed transformation treats the image it operates upon like a topographic map, using the gradient
