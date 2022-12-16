@@ -2,7 +2,8 @@
 
 To start the segmentation process run the [main.py](main.py).
 
-_thresholding_: It's a type of segmentation in which we change the pixel of the image to make it easier to analyze. In
+_thresholding_: 
+It's a type of segmentation in which we change the pixel of the image to make it easier to analyze. In
 this case a threshold has been found using the Otsu's method which returns a single intensity threshold
 that separate pixels into two classes, foreground and background. This threshold is determined by minimizing intra-class
 intensity variance. <br>
