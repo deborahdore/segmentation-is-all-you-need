@@ -1,53 +1,38 @@
 # segmentation-is-all-you-need
-Is segmentation a fundamental step in computer vision? this repo aims to prove that there are problems in which segmentation shouldn't be performed to obtain better results
+Is segmentation a fundamental step in computer vision? this repo aims to prove that there are problems in which segmentation shouldn't be performed to obtain better results.
+Demo is available [here](demo.mov)
 
+## **DATASET**
+To carry out this task, the chosen [dataset](dataset) is composed of images from the 10 different scuderias in formula 1. 
 
-_Folder structure_:
+## **STEPS**
+To evaluate the segmentation, two different tasks were evaluated: classification and object detection. <br>
+* `src/classification` : classification tasks scripts
+* `src/segmentation` : segmentation tasks scripts
+* `src/detection` : detection tasks scripts
 
-``` bash
-.
-├── dataset
-│       ├── alfa_romeo
-│       ├── bwt
-│       ├── ferrari
-│       ├── haas
-│       ├── mclaren
-│       ├── mercedes
-│       ├── redbull
-│       ├── renault
-│       ├── toro_rosso
-│       └── williams
-└── src
-    ├── classification
-    │       ├── base
-    │       │     ├── config
-    │       │     ├── loader
-    │       │     ├── model
-    │       │     ├── saved
-    │       │     │   ├── models
-    │       │     │   └── plot
-    │       │     └── utils
-    │       └── hypertuned
-    │                ├── config
-    │                ├── loader
-    │                ├── model
-    │                ├── saved
-    │                │   ├── logs
-    │                │   ├── models
-    │                │   └── plot
-    │                └── utils
-    ├── detection
-    │   ├── config
-    │   │   └── xml
-    │   ├── saved
-    │   │   └── model
-    │   ├── utils
-    │   └── videos
-    └── segmentation
-        ├── config
-        ├── saved
-        │   ├── plot
-        │   └── report
-        └── utils
-```
+## **SEGMENTATION**:
 
+To start the segmentation process run the [src/segmentation/main.py](src/segmentation/main.py).<br>
+Segmentation techniques include:
+
+* _thresholding_: <br>
+It's a type of segmentation in which we change the pixel of the image to make it easier to analyze. In
+this case a threshold has been found using the Otsu's method which returns a single intensity threshold
+that separate pixels into two classes, foreground and background. This threshold is determined by minimizing intra-class
+intensity variance. <br>
+![thresholding](src/segmentation/saved/plot/thresholding_segmentation.svg)
+
+* _watershed_: The watershed transformation treats the image it operates upon like a topographic map, using the gradient
+to finds the lines that run along the tops of ridges <br> ![watershed](src/segmentation/saved/plot/watershed_segmentation.svg)
+
+* _clustering_: is an unsupervised learning algorithm that aims to group image's pixel into k given different
+clusters <br> ![clustering](src/segmentation/saved/plot/clustering.svg)
+
+* _clustering adding coordinates as features_:<br> ![clustering](src/segmentation/saved/plot/clustering_coords.svg)
+
+* _mean shift clustering_: is an unsupervised algorithm that aims to discover blobs in a smooth density of
+samples. It's complexity however grows exponentially <br> ![mean shift](src/segmentation/saved/plot/mean_shift_segmentation.svg)
+
+## **PRESENTATION**
+Presentation slides are available [here](Presentation.pdf)
